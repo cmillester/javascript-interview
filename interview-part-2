@@ -1,2 +1,34 @@
 Describe how you would thoroughly test the "www.freshly.com/login" page below:
 
+It depends on the scope of the ticket. I would assume the ticket would cover what exact functionality is needed to be tested, but if it's testing the entire page in general; 
+
+Testcase 1: Navigate to www.freshly.com/login - Ensure UI matches the creative file - desktop (Safari/Internet Explorer/Chrome/Firefox)
+Testcase 2: Navigate to www.freshly.com/login - Ensure UI matches the creative file and is dynamic when window size is adjusted - desktop
+Testcase 3: Navigate to www.freshly.com/login - Ensure UI matches the creative file - Mobile - iOS - Landscape and Portrait mode
+Testcase 4: Navigate to www.freshly.com/login - Ensure UI matches the creative file - Mobile - iOS (iPhone SE for smaller screen size) - Landscape and Portrait mode
+Testcase 5: Navigate to www.freshly.com/login - Ensure UI matches the creative file - Mobile - Android - Landscape and Portrait mode
+Testcase 6: Validate the dataLayer/Tracking requirement is met on the "Log In" event
+Testcase 7: Validate the dataLayer/Tracking requirement is met on the "Forget Password" event
+Testcase 8: Validate the dataLayer/Tracking requirement is met on the "Get Started" event
+Testcase 9: Ensure the amount of characters entered in "Emal" field is as expected (depending on the requirement: ex. limited to 18 characters only or maybe no limit at all) 
+Testcase 10: Attempt to log in with a valid email address with an account and correct password - should log into account as expected
+Testcase 11: Attempt to log in with a valid email address with an account and an incorrect password - should not be able to log in (error message should be triggered)
+Testcase 12: Attempt to log in with a valid email address that has no account with Freshly - should not be able to log in (error message should be triggered)
+Testcase 13: Attempt to log in with a valid email address with an account but typed incomplete (ex. freshly@gmail.co) and correct password - should not be able to log in (error message should be triggered)
+Testcase 14: Attempt to log in with a valid email address with an account and a password missing the last character (ex. "passwor" instead of "password" - should not be able to log in (error message should be triggered)                                                                                                                                                                                                        
+Testcase 15: Attempt to log in with a valid email address with an account and a correct password but in all CAPS - expected outcome depends on the requirement (if password is caps sensitive)                                                                                                                                                                                                
+Testcase 16: Attempt to log in with a valid email address with an account and a correct password but email address is in all CAPS - expected outcome depends on the requirement (if email address is caps sensitive)                                                                                                                                                                                                
+Testcase 17: Attempt to log in with a valid email address with an account and no password is inputted - should not be able to log in (error message should be triggered)
+Testcase 18: Click "Log In" with no email address and no password inputted - should not be able to log in (error message should be triggered)
+Testcase 19: Fail logging in more than x amount of times to validate getting locked out (if matches rerquirements)
+Testcase 20: Ensure staging environment only allows staging accounts to login (prod accounts should not be expected to login to staging environment - depending on requirement)
+Testcase 21: Ensure prod environment only allows prod accounts to login (staging accounts should not be expected to login to staging environment - depending on requirement)
+Testcase 22: Ensure the following CTAs navigate to the expected URL target: Forgot Password? - https://www.freshly.com/forgot-password
+Testcase 23: Ensure the following CTAs navigate to the expected URL target: Get Started - https://www.freshly.com/join-now
+Testcase 24: Ensure header menu items navigate to expected URLs
+Testcase 25: Ensure footer menu items navigate to expected URLs
+Testcase 26: Ensure clicking on social media logos would navigate user to expected URLs
+Testcase 27: Ensure clicking on app store buttons would redirect user to expected app store
+Testcase 28: Ensure clicking on Freshly logo in header navigates user back to home page
+Testcase 29: Ensure clicking on Freshly logo in footer navigates user back to home page
+Testcase 30: Ensure that the chatbox is working as expected 

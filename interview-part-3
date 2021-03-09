@@ -24,3 +24,40 @@ Using Cypress, write an integration test that does the following:
 [ ] Should be on 'Payment Info' step
 [ ] Complete 'payment info form'
 
+Note: I wrote my tests using Selenium and Java. The above could all be written in one long test but I'd rather break them up into smaller tests to be able to catch issues easily.
+
+[x] Visit 'www.freshly.com/subscriptions/new'
+
+ public void freshlyNavSubscriptionNew() {
+		 driver.get("www.freshly.com/subscriptions/new");
+		 Thread.sleep(1000);
+	  String freshlySubText = wait.until(ExpectedConditions.visibilityOfElementLocated(freshly_text_dinnersReady())).getText();
+	  Assert.assertEquals(freshlySubText, "Dinner’s ready!");
+	  String URL = driver.getCurrentUrl();
+	  Assert.assertEquals(URL, "www.freshly.com/subscriptions/new" 
+	 Thread.sleep(1000);
+   
+   
+[x] Should see form with email and zipcode fields
+[x] Enter email and zipcode (35125 is a usable zipcode)
+
+  wait.until(ExpectedConditions.visibilityOfElementLocated(freshly_textfield_email())).sendKeys("freshly@test.com");
+Thread.sleep(1000);
+wait.until(ExpectedConditions.visibilityOfElementLocated(freshly_textfield_zip())).sendKeys("35125");
+ wait.until(ExpectedConditions.elementToBeClickable(freshly_button_continue)).click();
+ Thread.sleep(5000);
+ 
+[x] Should see 'choose a plan' section
+
+  wait.until(ExpectedConditions.visibilityOfElementLocated(freshly_text_chooseAPlan())).getText();
+  Assert.assertEquals(freshlySubText, "Choose a Plan");
+Thread.sleep(1000);
+
+
+
+Object Repository in a separate class 
+By freshly_text_dinnersReady = By.xpath("//h1[contains(text(),'Dinner’s ready!')]"); public By freshly_text_dinnersReady() {return freshly_text_dinnersReady; }	
+By freshly_textfield_email = By.xpath("//input[@placeholder='Email']"); public By freshly_textfield_email() {return freshly_textfield_email; }	
+By freshly_textfield_zip = By.xpath("//input[@placeholder='Zip']"); public By freshly_textfield_zip() {return freshly_textfield_zip; }	
+By freshly_button_continue = By.xpath("//input[@value='Continue']"); public By freshly_button_continue() {return freshly_button_continue; }	
+By freshly_text_chooseAPlan = By.xpath(“(//h1[contains(text(),'Choose a Plan')])[2]”); public By freshly_text_chooseAPlan() {return freshly_text_chooseAPlan; }	
